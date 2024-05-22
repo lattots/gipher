@@ -8,7 +8,7 @@ import (
 func TestCreateTimeStampGIF(t *testing.T) {
 	const fontFilename = "./test_data/Raleway-Black.ttf"
 
-	backgroundGIF := []string{"1€.gif", "2€.gif", "5€.gif", "10€.gif"}
+	backgroundGIF := []string{"1e.gif", "2e.gif", "5e.gif", "10e.gif"}
 
 	for _, file := range backgroundGIF {
 		inputFilename := fmt.Sprintf("./test_data/%s", file)
