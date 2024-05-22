@@ -51,13 +51,15 @@ func CreateTimeStampGIF(backgroundFilename, outputFilename, fontFilename string)
 		}
 
 		// Timestamp is drawn.
-		dc.SetRGB(1, 1, 1)
+		dc.SetRGB(0, 0, 0)
 		timestamp := time.Now().Format("02.01. 15:04")
 		dc.DrawStringAnchored(timestamp, float64(backgroundFrame.Bounds().Dx())/2, float64(backgroundFrame.Bounds().Dy())/2, 0.5, 0.5)
 		dc.Fill()
 
+		palette := append(backgroundFrame.Palette, color.Black)
+		fmt.Println(palette)
 		// Frame is converted back to paletted image.
-		palettedFrame := imageToPaletted(dc.Image(), backgroundFrame.Palette)
+		palettedFrame := imageToPaletted(dc.Image(), palette)
 
 		// New frame is inserted to the final GIF.
 		outGif.Image[i] = palettedFrame
